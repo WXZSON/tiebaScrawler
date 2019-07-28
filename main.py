@@ -8,15 +8,15 @@ import urllib.request
 from bs4 import BeautifulSoup
 from lxml import html
 #from urllib.request import urlopen
-#url='https://movie.douban.com/' #需要爬数据的网址
+#url='https://movie.douban.com/' #éœ€è¦�çˆ¬æ•°æ�®çš„ç½‘å�€
 #page=requests.Session().get(url) 
 #tree=html.fromstring(page.text) 
-#result=tree.xpath('//td[@class="title"]//a/text()') #获取需要的数据
+#result=tree.xpath('//td[@class="title"]//a/text()') #èŽ·å�–éœ€è¦�çš„æ•°æ�®
 #print(result)
 
 url='http://tieba.baidu.com/f?kw=%E9%94%A4%E5%AD%90%E7%A7%91%E6%8A%80&ie=utf-8'
 
-print ("第二种方法")
+#print ("ç¬¬äºŒç§�æ–¹æ³•")
 
 #url = ''
 user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
@@ -27,16 +27,17 @@ data = urllib.parse.urlencode(d).encode("utf-8")
 req = urllib.request.Request(url)
 #with urllib.request.urlopen(req,data=data) as f:
 resp = urllib.request.urlopen(req,data=None).read()
-#print(resp)
+print(resp)
+print('---------------------*** --- *** ------------------')
 #html = resp
 bf = BeautifulSoup(resp, features="lxml")
-texts = bf.find_all('div')
+texts = bf.find_all('div', li="search_back_item j_search_back_item")
 print(texts)
 tree=html.fromstring(resp)
-print(tree) 
+#print(tree) 
 print('---------------------*** --- *** ------------------')
-result=tree.xpath('//td[@class="title"]//a/text()') #获取需要的数据
-print(result)
+#result=tree.xpath('//td[@class="title"]//a/text()') #èŽ·å�–éœ€è¦�çš„æ•°æ�®
+#print(result)
     
 #headers = { 'User-Agent' : user_agent }
 #data = urllib.parse.urlencode(values)
