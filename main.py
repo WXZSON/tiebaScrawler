@@ -2,9 +2,12 @@
 import requests
 
 #import urllib2
+import tushare as ts
 import http.cookiejar as HC
 import urllib.parse
 import urllib.request
+import matplotlib.pyplot as plt
+
 from bs4 import BeautifulSoup
 from lxml import html
 #from urllib.request import urlopen
@@ -34,7 +37,7 @@ bf = BeautifulSoup(resp, features="lxml")
 texts = bf.find_all('div', li="search_back_item j_search_back_item")
 print(texts)
 tree=html.fromstring(resp)
-#print(tree) 
+print(tree) 
 print('---------------------*** --- *** ------------------')
 #result=tree.xpath('//td[@class="title"]//a/text()') #èŽ·å�–éœ€è¦�çš„æ•°æ�®
 #print(result)
